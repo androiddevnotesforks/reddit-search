@@ -236,7 +236,7 @@ export class App extends React.Component<{}, AppState> {
         if (comment.permalink) {
           permalink = comment.permalink;
         } else {
-          permalink = `/comments/${comment.link_id.split('_')[1]}/_/${comment.id}`
+          permalink = `/comments/${comment.link_id.split('_')[1]}/_/${comment.id}/`
         }
         return <div className="bg-gray-900 px-1 mb-1" key={comment.id}>
           <div className="flex">
@@ -248,7 +248,7 @@ export class App extends React.Component<{}, AppState> {
             </a>
             <div className="text-sm text-red-500 ml-auto">{new Date(comment.created_utc * 1000).toLocaleString()}</div>
           </div>
-          <a href={`https://reddit.com${permalink}`}>
+          <a href={`https://reddit.com${permalink}?context=999`}>
             <div className="whitespace-pre-wrap">{comment.body}</div>
           </a>
         </div>
